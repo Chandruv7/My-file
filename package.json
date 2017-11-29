@@ -1,13 +1,11 @@
 {
-
-    "name": "my-app",
-
+    "name": "super-chat",
     "version": "0.1.0",
-
     "dependencies": {
-
-        "markdown": "~0.4"
-
-    }
-
+        "express": "~3.3.4",
+        "socket.io": "~1.2.1",
+        "ent": "~0.1.0"
+    },
+    "author": "Mateo21 <mateo21@email.com>",
+    "description": "A real-time super chat with socket .io"
 }

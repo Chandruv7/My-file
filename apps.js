@@ -1,60 +1,49 @@
-var http = require('http');
+var app = require('express')(),
 
-var fs = require('fs');
+    server = require('http').createServer(app),
+
+    io = require('socket.io').listen(server),
+
+    ent = require('ent'), // Blocks HTML characters (security equivalent to htmlentities in PHP)
+
+    fs = require('fs');
 
 
-// Loading the file index.html displayed to the client
+// Loading the page index.html
 
-var server = http.createServer(function(req, res) {
+app.get('/', function (req, res) {
 
-    fs.readFile('./index.html', 'utf-8', function(error, content) {
-
-        res.writeHead(200, {"Content-Type": "text/html"});
-
-        res.end(content);
-
-    });
+  res.sendfile(__dirname + '/index.html');
 
 });
-
-
-// Loading socket.io
-
-var io = require('socket.io').listen(server);
 
 
 io.sockets.on('connection', function (socket, username) {
 
-    // When the client connects, they are sent a message
+    // When the username is received it’s stored as a session variable and informs the other people
 
-    socket.emit('message', 'You are connected!');
+    socket.on('new_client', function(username) {
 
-    // The other clients are told that someone new has arrived
-
-    socket.broadcast.emit('message', 'Another client has just connected!');
-
-
-    // As soon as the username is received, it's stored as a session variable
-
-    socket.on('little_newbie', function(username) {
+        username = ent.encode(username);
 
         socket.username = username;
+
+        socket.broadcast.emit('new_client', username);
 
     });
 
 
-    // When a "message" is received (click on the button), it's logged in the console
+    // When a message is received, the client’s username is retrieved and sent to the other people
 
     socket.on('message', function (message) {
 
-        // The username of the person who clicked is retrieved from the session variables
+        message = ent.encode(message);
 
-        console.log(socket.username + ' is speaking to me! They\'re saying: ' + message);
+        socket.broadcast.emit('message', {username: socket.username, message: message});
 
     }); 
 
 });
-
 
 
 server.listen(8080);
