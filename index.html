@@ -3,9 +3,11 @@
 <head>
 <title>Jcs Consulting</title>
 <link rel="stylesheet" href="css/styles.css"/>
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+
 </head>
 <body>
-<div id="wrapper">
+
     <header>
             <h1><a href="www.jcs.com">Jcs consulting</a></h1>
             
@@ -18,7 +20,46 @@
             
       </header>
     <img src="images/123.png" width="100%"/>
+
+<section class="info-section">
+<div class="info-block">
+  <h1 class="info-title">SERVICES</h1>
+  <p class="info-message">JCS specializes in control solutions design and
+     implementation for the food and beverage ......  
+     At JCS, we partner with leading food, beverage 
+     and dairy customers to make big .Instrumentation 
+     Calibration; Control Panel Design and Fabrication.</p>
 </div>
+<div class="info-block">
+    <h1 class="info-title">PROJECTS</h1>
+    <p class="info-message">JCS specializes in control solutions design and
+       implementation for the food and beverage ......
+       At JCS, we partner with leading food, beverage
+       and dairy customers to make big.Instrumentation
+       Calibration; Control Panel Design and Fabrication.</p>
+</div>
+<div class="info-block">
+    <h1 class="info-title">CLIENTS</h1>
+    <p class="info-message">JCS specializes in control solutions design and
+       implementation for the food and beverage ......
+       At JCS, we partner with leading food, beverage
+       and dairy customers to make big.Instrumentation
+       Calibration; Control Panel Design and Fabrication.</p>
+</div>
+</section>
+<!--TODO About us-->
+<div id="map" style="width:400px;height:400px;"></div>
+
+<script>
+function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.12),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
+</script>
 
 
 </body>

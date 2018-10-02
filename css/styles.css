@@ -7,3 +7,23 @@ header{
 a {
 color: white;
 }
+
+p{
+    color:white;
+}
+section{
+    background-color:white;
+}
+.info-title{
+    text-align: center;
+    color:white;
+    font-style: oblique;
+}
+.info-block{
+    background-color: #0C3C60;
+    width: 344px;
+    border: 25px;
+    padding: 25px;
+    margin: 25px;
+    float: left;
+}
