@@ -3,8 +3,9 @@
 <head>
 <title>Jcs Consulting</title>
 <link rel="stylesheet" href="css/styles.css"/>
-<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4p_NjszWJuBaaUc2Je03wPF3tPjb1_JA&callback=myMap">
+    </script>
 </head>
 <body>
 
@@ -45,21 +46,46 @@
        At JCS, we partner with leading food, beverage
        and dairy customers to make big.Instrumentation
        Calibration; Control Panel Design and Fabrication.</p>
-</div>
+</div> 
 </section>
-<!--TODO About us-->
-<div id="map" style="width:400px;height:400px;"></div>
+<section class="info-section1">
+<h1 class="info-title1">ABOUT US</h1>
+<p class="info-message1">
+    The default setup has everything you need pre-installed so that you can build your app with the latest versions of the tools and SDK Manager.
 
-<script>
-function myMap() {
-    var mapOptions = {
-        center: new google.maps.LatLng(51.5, -0.12),
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-    }
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-}
-</script>
+    But before moving on to the next chapter, you still need another tool which will allow you to run your application on your computer, through a virtual smartphone or tablet. You guessed it - I’m talking about the emulator. Actually, there is an emulator built into Android Studio, but you will want to make it more efficient by installing the virtualization accelerator.
+</p>
+</section>
+<section  class="info-section2">
+<h1 class="info-title2">CONTACT US</h1>
+        <div class="info-form" id="map" style="width:400px;height:400px;"></div>
+
+        <script>
+        function myMap() {
+            var mapOptions = {
+                center: new google.maps.LatLng(11.129871, 77.199638),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            }
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        }
+        </script>
+    <div class="info-form">
+       
+        <form action="./action.php" method="POST">
+                
+            <input type="text" name="name" value="" placeholder="Enter your name"><br>
+            <input type="email" name="email" value="" placeholder="Enter your email address"><br>
+            <input type="text" name="subject" value="" placeholder="Subject"><br>
+           <textarea rows="4" cols="25" name="message" value="">Enter your message.....
+</textarea><br>
+<input type="submit" name="submit" value="Submit">
+        </form>
+    </div>
+
+        
+</section>
+
 
 
 </body>

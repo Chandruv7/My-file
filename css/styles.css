@@ -7,12 +7,11 @@ header{
 a {
 color: white;
 }
-
 p{
     color:white;
 }
-section{
-    background-color:white;
+.info-section{
+    background-color: white;
 }
 .info-title{
     text-align: center;
@@ -26,4 +25,37 @@ section{
     padding: 25px;
     margin: 25px;
     float: left;
+}
+.info-title1{
+    color: #0C3C60;
+    font-size: xx-large;
+    text-align: center;
+}
+.info-message1{
+    color: #0C3C60;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+}
+.info-title2{
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    
+}
+.info-section1{
+    background-color: lightblue;
+}
+.info-section2{
+    background-color: #0C3C60;
+}
+.info-form{
+    background-color: #0C3C60;
+    width: 400px;
+    border: 25px;
+    padding: 25px;
+    margin: 25px;
+    float: left;
+
+    
 }
