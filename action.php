@@ -3,9 +3,7 @@
 <head>
 <title>Jcs Consulting</title>
 <link rel="stylesheet" href="css/styles.css"/>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4p_NjszWJuBaaUc2Je03wPF3tPjb1_JA&callback=myMap">
-    </script>
+
 </head>
 <body>
 
@@ -28,7 +26,34 @@
 Thank you <?php print $_POST["name"];?>
 WE received your email <?php print $_POST["email"];?>
 Your <?php print $_POST["subject"];?> with <?php print $_POST["message"];?> will be stored with us.
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "jcs";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+$first_name = "'" .$_POST["name"] ."'";
+$email = "'" .$_POST["email"] ."'";
+$subject = "'" .$_POST["subject"] ."'"; 
+$message = "'" .$_POST["message"] ."'";
+//$sql = "INSERT INTO contacts (name, email, subject, message) VALUES ($_POST['name'], $_POST['email'],$_POST['subject'], $_POST['message'])";
+$sql = "INSERT INTO contacts (name, email, subject, message) VALUES ($first_name,$email,$subject,$message)";
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+?>
 </div>
+
 
 </section>
 
